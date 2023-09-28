@@ -24,19 +24,14 @@ void* heap_top(Heap* pq){
 }
 
 void heap_push(Heap* pq, void* data, int p) {
-    if (pq == NULL) {
-        fprintf(stderr, "Error: El montículo es nulo.\n");
-        return;
-    }
+    
+    if (pq == NULL) return;
 
     if (pq->size >= pq->capac) {
-        pq->capac = pq->capac * 2 + 1; // Duplicar la capacidad y agregar uno
+        pq->capac = pq->capac * 2 + 1;
         pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
 
-        if (pq->heapArray == NULL) {
-            fprintf(stderr, "Error: No se pudo aumentar la capacidad del montículo.\n");
-            exit(EXIT_FAILURE);
-        }
+        if (pq->heapArray == NULL) exit(EXIT_FAILURE);
     }
 
     int currentIndex = pq->size;
@@ -52,18 +47,16 @@ void heap_push(Heap* pq, void* data, int p) {
             pq->heapArray[currentIndex] = pq->heapArray[parentIndex];
             pq->heapArray[parentIndex] = temp;
             currentIndex = parentIndex;
-        } else {
-            break;
-        }
+        } 
+        else break;
     }
 }
 
-
-
-
-
-
 void heap_pop(Heap* pq){
+    if (pq == NULL || pq->size == 0) return;
+    
+    pq->size--;
+    pq->heapArray[0] = pq->heapArray[pq->size];
 
 }
 
@@ -73,9 +66,9 @@ Heap* newHeap = (Heap*)malloc(sizeof(Heap));
 
 if (newHeap == NULL) exit(EXIT_FAILURE);
     
-newHeap -> capac = 3;
-newHeap -> size = 0;
-newHeap -> heapArray = (heapElem*)malloc(sizeof(heapElem) * newHeap->capac);
+newHeap->capac = 3;
+newHeap->size = 0;
+newHeap->heapArray = (heapElem*)malloc(sizeof(heapElem) * newHeap->capac);
 
   if (newHeap->heapArray == NULL) {
     free(newHeap);
