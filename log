@@ -289,3 +289,18 @@ Thu 28 Sep 2023 09:08:34 PM UTC:
  tests:  8|0
 total_score: 70/70
 a94714e
+Thu 28 Sep 2023 09:09:19 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:76:31: error: ‘pq’ is a pointer; did you mean to use ‘->’?
+   76 |             heapElem temp = pq.heapArray[currentIndex];
+      |                               ^
+      |                               ->
+heap.c:77:45: error: ‘pq’ is a pointer; did you mean to use ‘->’?
+   77 |             pq->heapArray[currentIndex] = pq.heapArray[largestIndex];
+      |                                             ^
+      |                                             ->
+Compilation failed
+f27d5be
