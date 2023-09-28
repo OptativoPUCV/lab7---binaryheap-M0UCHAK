@@ -37,3 +37,22 @@ heap.c:30:22: error: ‘p’ undeclared (first use in this function); did you me
 heap.c:30:22: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 6ba8534
+Thu 28 Sep 2023 06:41:22 PM UTC: 
+ heap.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:30:22: error: ‘p’ undeclared (first use in this function); did you mean ‘pq’?
+   30 |   newElem.priority = p;
+      |                      ^
+      |                      pq
+heap.c:30:22: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:35:63: error: comparison between pointer and integer [-Werror]
+   35 |   while (index > 0 && pq->heapArray[(index - 1) / 2].priority < pq > heapArray[index].priority) {
+      |                                                               ^
+heap.c:35:70: error: ‘heapArray’ undeclared (first use in this function)
+   35 |   while (index > 0 && pq->heapArray[(index - 1) / 2].priority < pq > heapArray[index].priority) {
+      |                                                                      ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+e70c6c3
