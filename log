@@ -108,3 +108,15 @@ heap.c:61:1: error: expected identifier or ‘(’ before ‘}’ token
       | ^
 Compilation failed
 3223af5
+Thu 28 Sep 2023 06:46:51 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:44:44: error: ‘p’ undeclared (first use in this function); did you mean ‘pq’?
+   44 |     pq->heapArray[currentIndex].priority = p;
+      |                                            ^
+      |                                            pq
+heap.c:44:44: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+ab7abd5
