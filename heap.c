@@ -77,9 +77,7 @@ void heap_pop(Heap* pq){
             pq->heapArray[currentIndex] = pq->heapArray[largestIndex];
             pq->heapArray[largestIndex] = temp;
             currentIndex = largestIndex;
-        } else {
-            break;
-        }
+        } else break;
     }
 }
 
