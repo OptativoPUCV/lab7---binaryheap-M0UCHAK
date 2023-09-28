@@ -23,39 +23,41 @@ void* heap_top(Heap* pq){
   return pq -> heapArray[0].data;
 }
 
-void resizeHeap(Heap* pq) {
-    if (pq -> size == pq -> capac) {
-        pq -> capac *= 2; 
+void heap_push(Heap* pq, void* data, int priority){
+    if (pq == NULL) {
+        fprintf(stderr, "Error: El montículo es nulo.\n");
+        return;
+    }
 
-        pq -> heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
+    if (pq->size >= pq->capac) {
+        pq->capac *= 2; // Duplicar la capacidad
+        pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
 
-        if (pq -> heapArray == NULL) {
-            fprintf(stderr, "Error: No se pudo redimensionar el montículo.\n");
+        if (pq->heapArray == NULL) {
+            fprintf(stderr, "Error: No se pudo aumentar la capacidad del montículo.\n");
             exit(EXIT_FAILURE);
+        }
+    }
+
+    int currentIndex = pq->size;
+    pq->heapArray[currentIndex].data = data;
+    pq->heapArray[currentIndex].priority = p;
+    pq->size++;
+
+    while (currentIndex > 0) {
+        int parentIndex = (currentIndex - 1) / 2;
+        if (pq->heapArray[currentIndex].priority > pq->heapArray[parentIndex].priority) {
+          
+            heapElem temp = pq->heapArray[currentIndex];
+            pq->heapArray[currentIndex] = pq->heapArray[parentIndex];
+            pq->heapArray[parentIndex] = temp;
+            currentIndex = parentIndex;
+        } else {
+            break;
         }
     }
 }
 
-void heap_push(Heap* pq, void* data, int priority){
-
-  resizeHeap(pq);
-
-  heapElem newElem;
-  newElem.data = data;
-  newElem.priority = p;
-
-  int index = pq->size;
-  pq -> heapArray[index] = newElem;
-
-  while (index > 0 && pq->heapArray[(index - 1) / 2].priority < pq -> heapArray[index].priority) {
-    
-    heapElem temp = pq->heapArray[index];
-    pq -> heapArray[index] = pq -> heapArray[(index - 1) / 2];
-    pq -> heapArray[(index - 1) / 2] = temp;
-
-    index = (index - 1) / 2;
-  }
-  pq -> size++;
 }
 
 

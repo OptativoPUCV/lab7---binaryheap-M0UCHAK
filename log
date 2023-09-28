@@ -92,3 +92,19 @@ heap.c:45:22: error: ‘p’ undeclared (first use in this function); did you me
 heap.c:45:22: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 ba3ddac
+Thu 28 Sep 2023 06:46:19 PM UTC: 
+ heap.c | 46 ++++++++++++++++++++++++----------------------
+ 1 file changed, 24 insertions(+), 22 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:44:44: error: ‘p’ undeclared (first use in this function); did you mean ‘pq’?
+   44 |     pq->heapArray[currentIndex].priority = p;
+      |                                            ^
+      |                                            pq
+heap.c:44:44: note: each undeclared identifier is reported only once for each function it appears in
+heap.c: At top level:
+heap.c:61:1: error: expected identifier or ‘(’ before ‘}’ token
+   61 | }
+      | ^
+Compilation failed
+3223af5
