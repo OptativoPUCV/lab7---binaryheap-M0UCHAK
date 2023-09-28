@@ -304,3 +304,9 @@ heap.c:77:45: error: ‘pq’ is a pointer; did you mean to use ‘->’?
       |                                             ->
 Compilation failed
 f27d5be
+Thu 28 Sep 2023 09:09:37 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  8|0
+total_score: 70/70
+d417f3c

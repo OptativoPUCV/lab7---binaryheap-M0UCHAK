@@ -73,8 +73,8 @@ void heap_pop(Heap* pq){
             largestIndex = rightChildIndex;
       }
       if (largestIndex != currentIndex) {
-            heapElem temp = pq.heapArray[currentIndex];
-            pq->heapArray[currentIndex] = pq.heapArray[largestIndex];
+            heapElem temp = pq->heapArray[currentIndex];
+            pq->heapArray[currentIndex] = pq->heapArray[largestIndex];
             pq->heapArray[largestIndex] = temp;
             currentIndex = largestIndex;
         } else {
