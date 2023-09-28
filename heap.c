@@ -24,19 +24,14 @@ void* heap_top(Heap* pq){
 }
 
 void heap_push(Heap* pq, void* data, int p) {
-    if (pq == NULL) {
-        fprintf(stderr, "Error: El montículo es nulo.\n");
-        return;
-    }
+    if (pq == NULL) return;
+    
 
     if (pq->size >= pq->capac) {
-        pq->capac *= 2;
+        pq->capac *= 2+1;
         pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
 
-        if (pq->heapArray == NULL) {
-            fprintf(stderr, "Error: No se pudo aumentar la capacidad del montículo.\n");
-            exit(EXIT_FAILURE);
-        }
+        if (pq->heapArray == NULL) exit(EXIT_FAILURE);
     }
 
     int currentIndex = pq->size;
