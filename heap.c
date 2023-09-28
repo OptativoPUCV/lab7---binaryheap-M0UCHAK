@@ -23,7 +23,22 @@ void* heap_top(Heap* pq){
   return pq -> heapArray[0].data;
 }
 
+void resizeHeap(Heap* pq) {
+    if (pq -> size == pq -> capac) {
+        pq -> capac *= 2; 
+
+        pq -> heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
+
+        if (pq -> heapArray == NULL) {
+            fprintf(stderr, "Error: No se pudo redimensionar el montículo.\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+}
+
 void heap_push(Heap* pq, void* data, int priority){
+
+  resizeHeap(pq);
 
   heapElem newElem;
   newElem.data = data;
