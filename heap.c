@@ -41,5 +41,11 @@ if (newHeap == NULL) exit(EXIT_FAILURE);
 newHeap -> capac = 3;
 newHeap -> size = 0;
 newHeap -> heapArray = (heapElem*)malloc(sizeof(heapElem) * newHeap->capac);
+
+  if (newHeap->heapArray == NULL) {
+    free(newHeap);
+    exit(EXIT_FAILURE);
+  }
+  return newHeap;
   
 }
