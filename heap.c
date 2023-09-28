@@ -23,14 +23,14 @@ void* heap_top(Heap* pq){
   return pq -> heapArray[0].data;
 }
 
-void heap_push(Heap* pq, void* data, int priority){
+void heap_push(Heap* pq, void* data, int p) {
     if (pq == NULL) {
         fprintf(stderr, "Error: El montículo es nulo.\n");
         return;
     }
 
     if (pq->size >= pq->capac) {
-        pq->capac *= 2; // Duplicar la capacidad
+        pq->capac *= 2;
         pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
 
         if (pq->heapArray == NULL) {
@@ -47,7 +47,7 @@ void heap_push(Heap* pq, void* data, int priority){
     while (currentIndex > 0) {
         int parentIndex = (currentIndex - 1) / 2;
         if (pq->heapArray[currentIndex].priority > pq->heapArray[parentIndex].priority) {
-          
+
             heapElem temp = pq->heapArray[currentIndex];
             pq->heapArray[currentIndex] = pq->heapArray[parentIndex];
             pq->heapArray[parentIndex] = temp;
@@ -57,6 +57,7 @@ void heap_push(Heap* pq, void* data, int priority){
         }
     }
 }
+
 
 
 
