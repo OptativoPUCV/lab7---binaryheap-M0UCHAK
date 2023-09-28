@@ -56,3 +56,15 @@ heap.c:35:70: error: ‘heapArray’ undeclared (first use in this function)
 cc1: all warnings being treated as errors
 Compilation failed
 e70c6c3
+Thu 28 Sep 2023 06:41:48 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:30:22: error: ‘p’ undeclared (first use in this function); did you mean ‘pq’?
+   30 |   newElem.priority = p;
+      |                      ^
+      |                      pq
+heap.c:30:22: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+f262a67
