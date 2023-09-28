@@ -60,8 +60,8 @@ void heap_pop(Heap* pq){
 
     int currentIndex = 0;
     while (1) {
-        int leftChildIndex = 2 * currentIndex + 2;
-        int rightChildIndex = 2 * currentIndex + 3;
+        int leftChildIndex = 2 * currentIndex + 1;
+        int rightChildIndex = 2 * currentIndex + 2;
         int largestIndex = currentIndex;
 }
 
