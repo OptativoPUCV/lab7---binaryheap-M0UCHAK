@@ -25,3 +25,15 @@ Thu 28 Sep 2023 05:11:35 PM UTC:
  tests:  2|2
 total_score: 20/70
 aee6fef
+Thu 28 Sep 2023 06:40:31 PM UTC: 
+ heap.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:30:22: error: ‘p’ undeclared (first use in this function); did you mean ‘pq’?
+   30 |   newElem.priority = p;
+      |                      ^
+      |                      pq
+heap.c:30:22: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+6ba8534
