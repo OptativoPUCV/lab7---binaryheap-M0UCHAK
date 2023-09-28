@@ -120,3 +120,14 @@ heap.c:44:44: error: ‘p’ undeclared (first use in this function); did you me
 heap.c:44:44: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 ab7abd5
+Thu 28 Sep 2023 06:46:59 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:44:42: error: assignment to ‘int’ from ‘Heap *’ {aka ‘struct Heap *’} makes integer from pointer without a cast [-Werror=int-conversion]
+   44 |     pq->heapArray[currentIndex].priority = pq;
+      |                                          ^
+cc1: all warnings being treated as errors
+Compilation failed
+599371f
