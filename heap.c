@@ -63,6 +63,11 @@ void heap_pop(Heap* pq){
         int leftChildIndex = 2 * currentIndex + 1;
         int rightChildIndex = 2 * currentIndex + 2;
         int largestIndex = currentIndex;
+
+      if (leftChildIndex < pq->size &&
+            pq->heapArray[leftChildIndex].priority > pq->heapArray[largestIndex].priority) {
+            largestIndex = leftChildIndex;
+        }
 }
 
 Heap* createHeap(){
